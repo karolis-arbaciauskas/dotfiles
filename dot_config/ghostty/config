@@ -1,0 +1,14 @@
+command = /bin/zsh -c "tmux new -A -s work"
+theme = tokyonight
+font-size = 14
+font-family = "JetBrains Mono"
+font-style-bold = auto
+font-style-italic = auto
+font-style-bold-italic = auto
+confirm-close-surface = false
+cursor-style = block
+cursor-style-blink = false
+fullscreen = true
+macos-option-as-alt = true
+font-thicken = true
+mouse-hide-while-typing = true

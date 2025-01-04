@@ -17,6 +17,9 @@ export DOTFILES=$HOME/dotfiles
 # Path to your go path
 export GOPATH="$HOME/go"
 
+# Default editor
+export EDITOR=nvim
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -114,8 +117,6 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # ~/.bashrc
-
-alias vim='nvim --listen /tmp/nvim-server.pipe'
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
