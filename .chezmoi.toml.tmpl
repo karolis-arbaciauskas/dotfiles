@@ -5,3 +5,13 @@
     email = {{ $email | quote }}
     name = "Karolis Arbaciauskas"
     isWorkComputer = {{ $isWorkComputer }}
+
+[edit]
+    command = "nvim"
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+
+[git]
+    autoAdd = true

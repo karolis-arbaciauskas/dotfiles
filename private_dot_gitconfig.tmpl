@@ -1,12 +1,16 @@
 [user]
-	name = {{ .name | quote }}
-	email = {{ .email | quote }}
+	name = {{ .name }}
+	email = {{ .email }}
 	signingkey = {{ onepasswordRead "op://Private/GitHub SSH Key/public key" }}
-[gpg]
-	format = ssh
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-[commit]
-	gpgsign = true
+
 [init]
 	defaultBranch = main
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[commit]
+	gpgsign = true
