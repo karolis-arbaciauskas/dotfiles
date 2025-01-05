@@ -116,3 +116,5 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 export PATH="$(brew --prefix)/opt/ruby/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+
+eval "$(starship init zsh)"
