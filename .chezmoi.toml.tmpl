@@ -7,10 +7,10 @@
     isWorkComputer = {{ $isWorkComputer }}
 
 [edit]
-    command = {{ .chezmoi.osEnv.EDITOR | default "vim" | quote }}
+    command = {{ env "EDITOR" | default "vim" | quote }}
 
 [merge]
-    command = {{ .chezmoi.osEnv.EDITOR | default "vim" | quote }}
+    command = {{ env "EDITOR" | default "vim" | quote }}
     args = ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
 
 [git]
