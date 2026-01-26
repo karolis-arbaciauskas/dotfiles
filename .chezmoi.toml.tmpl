@@ -5,6 +5,7 @@
     email = {{ $email | quote }}
     name = "Karolis Arbaciauskas"
     isWorkComputer = {{ $isWorkComputer }}
+    sshKeyType = "ed25519"
 
 [edit]
     command = {{ env "EDITOR" | default "vim" | quote }}
