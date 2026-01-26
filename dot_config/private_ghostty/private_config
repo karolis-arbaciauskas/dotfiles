@@ -1,5 +1,5 @@
 command = /bin/zsh -c "tmux new -A -s work"
-theme = tokyonight
+theme = Catppuccin Mocha
 font-size = 14
 font-family = "JetBrains Mono"
 font-style-bold = auto

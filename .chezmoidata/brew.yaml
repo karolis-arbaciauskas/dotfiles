@@ -1,0 +1,56 @@
+brew:
+  packages:
+    base:
+      - colima
+      - coreutils
+      - delve
+      - fzf
+      - go
+      - golangci-lint
+      - lazydocker
+      - lazygit
+      - mas
+      - mise
+      - neovim
+      - ripgrep
+      - serve
+      - starship
+      - tmux
+      - xclip
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+
+    work:
+      - tokei
+
+  casks:
+    base:
+      - 1password
+      - 1password-cli
+      - chatgpt-atlas
+      - font-jetbrains-mono-nerd-font
+      - ghostty
+      - notion
+      - postman
+      - raycast
+      - tableplus
+      - the-unarchiver
+
+    work:
+      - slack
+
+    personal:
+      - discord
+      - nordvpn
+      - transmission
+      - vlc
+
+  mas:
+    - id: 441258766
+      name: Magnet
+    - id: 409203825
+      name: Numbers
+    - id: 409201541
+      name: Pages
+    - id: 497799835
+      name: Xcode

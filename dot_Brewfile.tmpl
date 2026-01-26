@@ -1,0 +1,32 @@
+# base packages
+{{- range .brew.packages.base }}
+brew "{{ . }}"
+{{- end }}
+
+# work-only packages
+{{ if .isWorkComputer }}
+{{- range .brew.packages.work }}
+brew "{{ . }}"
+{{- end }}
+{{ end }}
+
+# base casks
+{{- range .brew.casks.base }}
+cask "{{ . }}"
+{{- end }}
+
+# env casks
+{{ if .isWorkComputer }}
+{{- range .brew.casks.work }}
+cask "{{ . }}"
+{{- end }}
+{{ else }}
+{{- range .brew.casks.personal }}
+cask "{{ . }}"
+{{- end }}
+{{ end }}
+
+# app store
+{{- range .brew.mas }}
+mas "{{ .name }}", id: {{ .id }}
+{{- end }}

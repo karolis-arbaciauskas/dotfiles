@@ -1,0 +1,18 @@
+# Core
+export DOTFILES="{{ .env.paths.dotfiles }}"
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$DOTFILES"
+
+ZSH_THEME=""
+plugins=(git)
+HIST_STAMPS="dd/mm/yyyy"
+
+# Oh My Zsh
+source "$ZSH/oh-my-zsh.sh"
+
+# Load modules (safe if directory is missing and if glob has no matches)
+if [[ -d ~/.config/zsh ]]; then
+  for file in ~/.config/zsh/*.zsh(N); do
+    source "$file"
+  done
+fi

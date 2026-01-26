@@ -1,0 +1,16 @@
+machines:
+  default:
+    timezone: Europe/Vilnius
+    shell: zsh
+
+  work:
+    role: work
+    vpn: corp-vpn
+    kubernetes: true
+    docker: true
+
+  personal:
+    role: personal
+    vpn: nordvpn
+    kubernetes: false
+    docker: true

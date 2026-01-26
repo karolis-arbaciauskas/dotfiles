@@ -1,16 +1,40 @@
 [user]
-	name = {{ .name }}
-	email = {{ .email }}
-	signingkey = {{ onepasswordRead "op://Private/GitHub SSH Key/public key" }}
+  name = {{ .name }}
+  email = {{ .email }}
 
 [init]
-	defaultBranch = main
+  defaultBranch = {{ .git.user.default_branch }}
 
 [gpg]
-	format = ssh
+  format = ssh
 
 [gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  program = {{ .git.user.signing.program }}
+  defaultKeyCommand = ssh-add -L
 
 [commit]
-	gpgsign = true
+  gpgsign = {{ .git.user.signing.enabled }}
+
+[fetch]
+  prune = true
+  pruneTags = true
+
+[push]
+  default = current
+  autoSetupRemote = true
+
+[rebase]
+  autoStash = true
+
+[rerere]
+  enabled = true
+
+[branch]
+  sort = -committerdate
+
+{{- if .git.aliases }}
+[alias]
+{{- range $k, $v := .git.aliases }}
+  {{ $k }} = {{ $v }}
+{{- end }}
+{{- end }}

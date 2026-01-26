@@ -1,0 +1,26 @@
+add_newline = false
+command_timeout = 500
+scan_timeout = 50
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[git_branch]
+symbol = " "
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+
+[golang]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[kubernetes]
+symbol = "☸ "
+disabled = false

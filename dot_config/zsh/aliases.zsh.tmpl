@@ -1,0 +1,18 @@
+alias g="git"
+alias k="kubectl"
+alias tf="terraform"
+alias v="{{ .env.editor }}"
+alias cls="clear"
+alias lg="lazygit"
+alias ld="lazydocker"
+
+alias ports="lsof -iTCP -sTCP:LISTEN -n -P"
+alias flushdns="echo 'Run:'; echo '  sudo dscacheutil -flushcache'; echo '  sudo killall -HUP mDNSResponder'"
+alias reload="source ~/.zshrc"
+alias kctx="kubectl config current-context"
+
+{{ if .isWorkComputer }}
+alias vpn="scutil --nc start {{ .machines.work.vpn }}"
+{{ else }}
+alias vpn="{{ .machines.personal.vpn }} connect"
+{{ end }}

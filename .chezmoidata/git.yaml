@@ -1,0 +1,20 @@
+git:
+  user:
+    default_branch: main
+    signing:
+      enabled: true
+      format: ssh
+      program: /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+  aliases:
+    st: status
+    co: checkout
+    br: branch
+    ci: commit
+    amend: commit --amend
+    unstage: reset HEAD --
+    discard: checkout --
+    last: log -1 --stat
+    lg: log --all --graph --decorate --oneline
+    pushc: "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+    pullc: "!git pull --ff-only origin $(git rev-parse --abbrev-ref HEAD)"

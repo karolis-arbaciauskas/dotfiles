@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+OMZ_DIR="$HOME/.oh-my-zsh"
+
+if [ ! -d "$OMZ_DIR" ]; then
+  echo "Installing oh-my-zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+  echo "oh-my-zsh already installed"
+fi
