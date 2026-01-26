@@ -4,10 +4,13 @@ set -e
 KEY_NAME="GitHub SSH Key"
 VAULT="Private"
 
-# Check if key exists in 1Password
-if ! op item get "$KEY_NAME" --vault "$VAULT" >/dev/null 2>&1; then
+# Try to get existing item ID
+ITEM_ID=$(op item get "$KEY_NAME" --vault "$VAULT" --format json 2>/dev/null | jq -r '.id' || echo "")
+
+# Create key if it doesn't exist
+if [ -z "$ITEM_ID" ]; then
   echo "🔐 Creating SSH key in 1Password..."
-  op item create --category ssh --title "$KEY_NAME" --vault "$VAULT" --ssh-generate-key={{ .sshKeyType }}
+  ITEM_ID=$(op item create --category ssh --title "$KEY_NAME" --vault "$VAULT" --ssh-generate-key={{ .sshKeyType }} --format json | jq -r '.id')
   echo "✅ SSH key created"
 else
   echo "✅ SSH key already exists in 1Password"
@@ -16,4 +19,4 @@ fi
 # Print public key for GitHub setup
 echo ""
 echo "👉 Add this public key to GitHub:"
-op item get "$KEY_NAME" --vault "$VAULT" --fields label=public_key
+op item get "$ITEM_ID" --fields label=public_key
