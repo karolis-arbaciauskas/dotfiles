@@ -11,18 +11,20 @@ brew:
       - mise
       - neovim
       - ripgrep
-      - serve
       - starship
       - tmux
       - zsh-autosuggestions
       - zsh-syntax-highlighting
 
     work:
+      - python
+      - pipx
       - tokei
 
     personal:
       - coreutils
       - colima
+      - serve
       - xclip
 
   casks:
@@ -48,11 +50,12 @@ brew:
       - vlc
 
   mas:
-    - id: 441258766
-      name: Magnet
-    - id: 409203825
-      name: Numbers
-    - id: 409201541
-      name: Pages
-    - id: 497799835
-      name: Xcode
+    base:
+      - id: 441258766
+        name: Magnet
+
+    personal:
+      - id: 409203825
+        name: Numbers
+      - id: 409201541
+        name: Pages

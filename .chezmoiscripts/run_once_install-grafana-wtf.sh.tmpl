@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+{{ if .isWorkComputer }}
+# If pipx isn't installed yet (e.g., brew bundle not run), skip.
+if ! command -v pipx >/dev/null 2>&1; then
+  exit 0
+fi
+
+# Ensure pipx apps are on PATH for future shells.
+pipx ensurepath >/dev/null 2>&1 || true
+
+if pipx list --short 2>/dev/null | grep -qx "grafana-wtf"; then
+  exit 0
+fi
+
+pipx install grafana-wtf
+{{ end }}

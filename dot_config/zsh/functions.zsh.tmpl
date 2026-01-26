@@ -1,0 +1,25 @@
+function kill-port() {
+  local port="$1"
+  if [[ -z "$port" ]]; then
+    echo "Usage: kill-port <port-number>"
+    return 1
+  fi
+
+  local pids=$(lsof -ti:$port)
+  if [[ -z "$pids" ]]; then
+    echo "No processes found running on port $port"
+    return 0
+  fi
+
+  echo "Killing processes on port $port: $pids"
+  kill -9 $pids
+}
+
+{{ if .isWorkComputer }}
+function g-wtf {
+  if [[ -z "$GRAFANA_TOKEN" ]]; then
+    export GRAFANA_TOKEN=$(op item get "grafana.int.vinted.com grafana-wtf token" --fields label=credential --reveal)
+  fi
+  "$HOME/.local/bin/grafana-wtf" --grafana-url="https://grafana.int.vinted.com" "$@"
+}
+{{ end }}

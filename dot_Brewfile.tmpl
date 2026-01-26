@@ -33,7 +33,14 @@ cask "{{ . }}"
 {{- end }}
 {{ end }}
 
-# app store
-{{- range .brew.mas }}
+# app store (base)
+{{- range .brew.mas.base }}
 mas "{{ .name }}", id: {{ .id }}
 {{- end }}
+
+# app store (personal)
+{{ if not .isWorkComputer }}
+{{- range .brew.mas.personal }}
+mas "{{ .name }}", id: {{ .id }}
+{{- end }}
+{{ end }}

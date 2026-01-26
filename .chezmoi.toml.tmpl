@@ -7,10 +7,10 @@
     isWorkComputer = {{ $isWorkComputer }}
 
 [edit]
-    command = "nvim"
+    command = {{ .env.editor | quote }}
 
 [merge]
-    command = "nvim"
+    command = {{ .env.editor | quote }}
     args = ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
 
 [git]
