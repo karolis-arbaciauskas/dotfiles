@@ -1,8 +1,6 @@
 brew:
   packages:
     base:
-      - colima
-      - coreutils
       - delve
       - fzf
       - go
@@ -16,12 +14,16 @@ brew:
       - serve
       - starship
       - tmux
-      - xclip
       - zsh-autosuggestions
       - zsh-syntax-highlighting
 
     work:
       - tokei
+
+    personal:
+      - coreutils
+      - colima
+      - xclip
 
   casks:
     base:

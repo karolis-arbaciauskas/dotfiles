@@ -10,6 +10,13 @@ brew "{{ . }}"
 {{- end }}
 {{ end }}
 
+# personal-only packages
+{{ if not .isWorkComputer }}
+{{- range .brew.packages.personal }}
+brew "{{ . }}"
+{{- end }}
+{{ end }}
+
 # base casks
 {{- range .brew.casks.base }}
 cask "{{ . }}"
