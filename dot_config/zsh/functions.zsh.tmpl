@@ -20,6 +20,7 @@ function g-wtf {
   if [[ -z "$GRAFANA_TOKEN" ]]; then
     export GRAFANA_TOKEN=$(op item get "grafana.int.vinted.com grafana-wtf token" --fields label=credential --reveal)
   fi
-  "$HOME/.local/bin/grafana-wtf" --grafana-url="https://grafana.int.vinted.com" "$@"
+  export GRAFANA_URL="https://grafana.int.vinted.com"
+  "$HOME/.local/bin/grafana-wtf" "$@"
 }
 {{ end }}
