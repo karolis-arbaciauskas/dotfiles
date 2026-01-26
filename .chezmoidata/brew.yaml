@@ -41,6 +41,7 @@ brew:
       - the-unarchiver
 
     work:
+      - claude-code
       - slack
 
     personal:
