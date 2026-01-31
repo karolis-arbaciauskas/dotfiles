@@ -32,6 +32,9 @@
 [branch]
   sort = -committerdate
 
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
 {{- if .git.aliases }}
 [alias]
 {{- range $k, $v := .git.aliases }}
