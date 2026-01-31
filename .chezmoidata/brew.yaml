@@ -17,6 +17,9 @@ brew:
       - zsh-syntax-highlighting
 
     work:
+      - bat
+      - gh
+      - kubectl
       - python
       - pipx
       - tokei

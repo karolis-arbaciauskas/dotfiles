@@ -1,0 +1,10 @@
+{{ if .isWorkComputer -}}
+# Vinted dev-tools
+source "${DEVTOOLS_PATH:-$HOME/vinted/dev-tools}/bin/shell_function.sh"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/karolis.arbaciauskas/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+export PATH="$HOME/.local/bin:$PATH"
+{{ end -}}
