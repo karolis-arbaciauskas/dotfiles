@@ -1,6 +1,7 @@
 brew:
   packages:
     base:
+      - bat
       - delve
       - fzf
       - go
@@ -13,11 +14,11 @@ brew:
       - ripgrep
       - starship
       - tmux
+      - zoxide
       - zsh-autosuggestions
       - zsh-syntax-highlighting
 
     work:
-      - bat
       - gh
       - kubectl
       - python
