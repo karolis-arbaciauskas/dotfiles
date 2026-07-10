@@ -1,4 +1,6 @@
 [".config/nvim"]
     type = "git-repo"
-    url = "git@github.com:karolis-arbaciauskas/kickstart.nvim.git"
+    # This repository is public. Keep bootstrap dependencies on HTTPS: chezmoi
+    # installs externals before it runs scripts that configure the SSH agent.
+    url = "https://github.com:443/karolis-arbaciauskas/kickstart.nvim.git"
     refreshPeriod = "1h"

@@ -2,3 +2,4 @@ npm:
   packages:
     base:
       - "@fsouza/prettierd"
+      - "@earendil-works/pi-coding-agent"

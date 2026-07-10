@@ -6,6 +6,7 @@ if command -v npm >/dev/null 2>&1; then
 
   # Install base packages
   npm install -g @fsouza/prettierd
+  npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
   echo "✅ npm packages installed"
 else

@@ -17,5 +17,6 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/karolis-
 
 ### After it finishes
 1. When prompted, enter your email and whether this is a work computer.
-2. Add the printed SSH public key to GitHub.
+2. Add the printed SSH public key to GitHub as an authentication key (and as a
+   signing key if you want GitHub to verify signed commits).
 3. Open a new terminal session.
