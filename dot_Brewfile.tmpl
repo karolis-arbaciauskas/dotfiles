@@ -1,3 +1,10 @@
+# work-only taps
+{{ if .isWorkComputer }}
+{{- range .brew.taps.work }}
+tap "{{ . }}"
+{{- end }}
+{{ end }}
+
 # base packages
 {{- range .brew.packages.base }}
 brew "{{ . }}"

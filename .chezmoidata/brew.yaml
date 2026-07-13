@@ -1,4 +1,8 @@
 brew:
+  taps:
+    work:
+      - atlassian/homebrew-acli
+
   packages:
     base:
       - bat
@@ -20,6 +24,7 @@ brew:
       - zsh-syntax-highlighting
 
     work:
+      - acli
       - gh
       - kubectl
       - python

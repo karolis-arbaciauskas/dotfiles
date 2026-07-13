@@ -3,3 +3,4 @@ npm:
     base:
       - "@fsouza/prettierd"
       - "@earendil-works/pi-coding-agent"
+      - markdownlint-cli
