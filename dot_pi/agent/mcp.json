@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "v-assist": {
+      "url": "https://v-assist.prod.vinted.site/mcp",
+      "headers": {
+        "Authorization": "Bearer ${V_ASSIST_TOKEN}"
+      },
+      "description": "Vinted internal v-assist: discover/acquire skills, query internal tooling, and run code."
+    }
+  }
+}
