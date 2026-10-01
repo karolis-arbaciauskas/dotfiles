@@ -41,12 +41,12 @@ brew:
     base:
       - 1password
       - 1password-cli
+      - bruno
       - chatgpt-atlas
       - font-jetbrains-mono-nerd-font
       - ghostty
       - notion
       - obsidian
-      - postman
       - raycast
       - tableplus
       - the-unarchiver
