@@ -1,0 +1,72 @@
+#!/bin/bash
+set -euo pipefail
+
+managed_begin="# >>> chezmoi managed >>>"
+managed_end="# <<< chezmoi managed <<<"
+
+managed_block="$(cat <<'MANAGED_EOF'
+# >>> chezmoi managed >>>
+# Core
+export DOTFILES="{{ .env.paths.dotfiles }}"
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$DOTFILES"
+
+ZSH_THEME=""
+plugins=(git)
+HIST_STAMPS="dd/mm/yyyy"
+
+# Oh My Zsh
+source "$ZSH/oh-my-zsh.sh"
+
+# Load modules (safe if directory is missing and if glob has no matches)
+if [[ -d ~/.config/zsh ]]; then
+  for file in ~/.config/zsh/*.zsh(N); do
+    source "$file"
+  done
+fi
+# <<< chezmoi managed <<<
+MANAGED_EOF
+)"
+
+legacy_block="$(cat <<'LEGACY_EOF'
+# Core
+export DOTFILES="{{ .env.paths.dotfiles }}"
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$DOTFILES"
+
+ZSH_THEME=""
+plugins=(git)
+HIST_STAMPS="dd/mm/yyyy"
+
+# Oh My Zsh
+source "$ZSH/oh-my-zsh.sh"
+
+# Load modules (safe if directory is missing and if glob has no matches)
+if [[ -d ~/.config/zsh ]]; then
+  for file in ~/.config/zsh/*.zsh(N); do
+    source "$file"
+  done
+fi
+LEGACY_EOF
+)"
+
+existing="$(cat)"
+
+if printf '%s\n' "$existing" | grep -qF "$managed_begin"; then
+  remainder="$(printf '%s\n' "$existing" | awk -v b="$managed_begin" -v e="$managed_end" '
+    $0 == b { skip = 1; next }
+    $0 == e { skip = 0; next }
+    skip != 1 { print }
+  ')"
+else
+  # No markers yet: drop the known legacy base lines (wherever they sit) and keep the rest.
+  remainder="$(printf '%s\n' "$existing" | grep -vxF -f <(printf '%s\n' "$legacy_block" | grep -v '^$'))" || true
+fi
+
+# Drop leading blank lines and squeeze runs of blank lines down to one
+remainder="$(printf '%s\n' "$remainder" | awk 'NF { found = 1 } found' | awk '/^$/ { blank++; if (blank > 1) next } !/^$/ { blank = 0 } { print }')"
+
+printf '%s\n\n' "$managed_block"
+if [ -n "$remainder" ]; then
+  printf '%s\n' "$remainder"
+fi
