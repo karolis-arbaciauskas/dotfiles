@@ -42,10 +42,8 @@ brew:
       - 1password
       - 1password-cli
       - bruno
-      - chatgpt-atlas
       - font-jetbrains-mono-nerd-font
       - ghostty
-      - notion
       - obsidian
       - raycast
       - tableplus
@@ -67,7 +65,7 @@ brew:
         name: Magnet
 
     personal:
-      - id: 409203825
+      - id: 361304891
         name: Numbers
-      - id: 409201541
+      - id: 361309726
         name: Pages
