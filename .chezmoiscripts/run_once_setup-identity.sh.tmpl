@@ -19,8 +19,10 @@ fi
 # Get public key
 PUBLIC_KEY=$(op item get "$ITEM_ID" --fields label=public_key)
 
-# Configure Git signing key
-git config --global user.signingkey "$PUBLIC_KEY"
+# Keep the selected key outside the chezmoi-managed ~/.gitconfig.
+SIGNING_CONFIG="$HOME/.config/git/signing.gitconfig"
+mkdir -p "$(dirname "$SIGNING_CONFIG")"
+git config --file "$SIGNING_CONFIG" user.signingKey "$PUBLIC_KEY"
 
 # Print setup instructions
 echo ""

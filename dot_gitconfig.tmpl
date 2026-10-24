@@ -2,6 +2,10 @@
   name = {{ .name }}
   email = {{ .email }}
 
+# Kept outside this managed file so chezmoi apply preserves the selected key.
+[include]
+  path = ~/.config/git/signing.gitconfig
+
 [init]
   defaultBranch = {{ .git.user.default_branch }}
 

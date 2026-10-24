@@ -15,6 +15,7 @@ brew:
       - mas
       - mise
       - neovim
+      - node
       - ripgrep
       - starship
       - tmux
