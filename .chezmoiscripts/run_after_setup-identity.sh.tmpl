@@ -3,6 +3,18 @@ set -e
 
 KEY_NAME="GitHub SSH Key"
 VAULT="Private"
+MARKER="$HOME/.local/state/dotfiles/identity-done"
+
+# Already set up on this machine
+[ -f "$MARKER" ] && exit 0
+
+# 1Password CLI must be connected to the desktop app first
+if ! op account list 2>/dev/null | grep -q .; then
+  echo "⚠️  1Password CLI not set up, skipping SSH signing key setup."
+  echo "   1Password → Settings → Developer → enable 'Integrate with 1Password CLI',"
+  echo "   then re-run: chezmoi apply"
+  exit 0
+fi
 
 # Try to get existing item ID
 ITEM_ID=$(op item get "$KEY_NAME" --vault "$VAULT" --format json 2>/dev/null | jq -r '.id' || echo "")
@@ -38,3 +50,5 @@ echo "3. Set 'Key type' to 'Signing Key'"
 echo "4. Paste the public key above"
 echo "5. Click 'Add SSH key'"
 echo ""
+
+mkdir -p "$(dirname "$MARKER")" && touch "$MARKER"
