@@ -25,6 +25,15 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/karolis-
 
 Ghostty starts or attaches to the named Herdr session `work`. Herdr and `jq`
 (the navigation plugin's dependency) are included in the Brew bundle.
+The tab bar's right edge shows the current macOS input language, battery, and a
+24-hour clock (`🇺🇸 · ⚡ 64% · 14:35`). English uses 🇺🇸 and Lithuanian uses 🇱🇹;
+other languages fall back to their language codes. Battery refreshes every 5 seconds;
+`⚡` means connected to AC power, including when charging is paused or complete;
+`🔋` means running on battery. Machines without a
+battery omit the battery entry. Language is queried every second using a Swift helper
+compiled once into `~/.cache/herdr` (requires Xcode Command Line Tools).
+Status commands and time resolve on the Herdr server; over SSH they reflect
+that server's machine, not the local terminal.
 
 | Action | Keys |
 | --- | --- |

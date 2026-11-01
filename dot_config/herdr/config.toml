@@ -9,6 +9,12 @@ new_cwd = "follow"
 
 [ui]
 prompt_new_tab_name = false
+tab_bar_right = [
+  { type = "command", command = '"$HOME/.config/herdr/input-language.sh"', interval_seconds = 1, timeout_seconds = 5 },
+  { type = "command", command = '"$HOME/.config/herdr/battery.sh"', interval_seconds = 5, timeout_seconds = 2 },
+  { type = "datetime", format = "%H:%M" },
+]
+tab_bar_right_separator = " · "
 
 [keys]
 prefix = "ctrl+s"
