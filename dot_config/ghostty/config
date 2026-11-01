@@ -1,6 +1,6 @@
-command = /bin/zsh -c "tmux new -A -s work"
+command = /bin/zsh -lc "exec herdr --session work"
 
-theme = Catppuccin Mocha
+theme = TokyoNight
 font-size = 14
 font-family = "JetBrains Mono"
 font-style-bold = auto
@@ -19,3 +19,6 @@ window-inherit-working-directory = true
 
 # Close split
 keybind = super+w=close_surface
+
+# Cmd-k opens herdr-bar by sending Ctrl-Alt-k (CSI-u).
+keybind = cmd+k=text:\x1b[107;7u

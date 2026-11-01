@@ -1,0 +1,94 @@
+onboarding = false
+
+[theme]
+name = "tokyo-night"
+auto_switch = false
+
+[terminal]
+new_cwd = "follow"
+
+[ui]
+prompt_new_tab_name = false
+
+[keys]
+prefix = "ctrl+s"
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+new_tab = "prefix+c"
+close_pane = "prefix+x"
+detach = "prefix+d"
+reload_config = "prefix+r"
+resize_mode = "prefix+alt+r"
+workspace_picker = "prefix+f"
+# Free prefix+k for herdr-bar; Ctrl-k still provides smart navigation.
+focus_pane_up = "prefix+up"
+# In navigate mode, j/k select workspaces rather than panes.
+navigate_workspace_down = "j"
+navigate_workspace_up = "k"
+navigate_pane_down = "ctrl+j"
+navigate_pane_up = "ctrl+k"
+# Free g for lazygit; keep Herdr's goto on G.
+goto = "prefix+shift+g"
+new_worktree = "prefix+alt+g"
+
+[[keys.command]]
+key = ["prefix+k", "ctrl+alt+k"]
+type = "plugin_action"
+command = "herdr-bar.open"
+description = "search tabs, workspaces and agents"
+
+[[keys.command]]
+key = "prefix+g"
+type = "popup"
+command = "lazygit"
+description = "lazygit"
+width = "90%"
+height = "90%"
+
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "smart-splits-backend-herdr.left"
+description = "navigate left (Neovim/Herdr)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "smart-splits-backend-herdr.down"
+description = "navigate down (Neovim/Herdr)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "smart-splits-backend-herdr.up"
+description = "navigate up (Neovim/Herdr)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "smart-splits-backend-herdr.right"
+description = "navigate right (Neovim/Herdr)"
+
+[[keys.command]]
+key = "alt+h"
+type = "shell"
+command = '"$HOME/.config/herdr/resize.sh" left'
+description = "resize left (Neovim/Herdr)"
+
+[[keys.command]]
+key = "alt+j"
+type = "shell"
+command = '"$HOME/.config/herdr/resize.sh" down'
+description = "resize down (Neovim/Herdr)"
+
+[[keys.command]]
+key = "alt+k"
+type = "shell"
+command = '"$HOME/.config/herdr/resize.sh" up'
+description = "resize up (Neovim/Herdr)"
+
+[[keys.command]]
+key = "alt+l"
+type = "shell"
+command = '"$HOME/.config/herdr/resize.sh" right'
+description = "resize right (Neovim/Herdr)"

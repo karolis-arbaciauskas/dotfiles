@@ -9,6 +9,8 @@ brew:
       - delve
       - fzf
       - go
+      - herdr
+      - jq
       - golangci-lint
       - lazydocker
       - lazygit
@@ -18,7 +20,6 @@ brew:
       - node
       - ripgrep
       - starship
-      - tmux
       - tree-sitter-cli
       - zoxide
       - zsh-autosuggestions
