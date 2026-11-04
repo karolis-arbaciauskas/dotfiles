@@ -28,6 +28,7 @@ brew:
 
     work:
       - acli
+      - avro-tools
       - gh
       - kubectl
       - python
