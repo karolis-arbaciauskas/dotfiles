@@ -45,6 +45,8 @@ that server's machine, not the local terminal.
 | Detach | Prefix, `d` |
 | Reload configuration | Prefix, `r` |
 | Workspace picker | Prefix, `f` |
+| Jump to workspace 1-9 | Prefix, `Shift-1` … `Shift-9` |
+| Jump to tab 1-9 | Prefix, `1` … `9` |
 | Search tabs, workspaces and agents (herdr-bar) | Prefix, `k` / `Cmd-k` in Ghostty / `Ctrl-Alt-k` |
 | Rename selected tab in herdr-bar | `Ctrl-r` |
 | Next / previous workspace in navigate mode | `j` / `k` |

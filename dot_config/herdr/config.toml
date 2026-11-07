@@ -26,6 +26,8 @@ detach = "prefix+d"
 reload_config = "prefix+r"
 resize_mode = "prefix+alt+r"
 workspace_picker = "prefix+f"
+# Jump straight to workspace 1-9. Tabs stay on prefix+1..9.
+switch_workspace = "prefix+shift+1..9"
 # Free prefix+k for herdr-bar; Ctrl-k still provides smart navigation.
 focus_pane_up = "prefix+up"
 # In navigate mode, j/k select workspaces rather than panes.
