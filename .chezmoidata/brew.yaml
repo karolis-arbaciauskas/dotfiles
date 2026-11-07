@@ -55,6 +55,7 @@ brew:
 
     work:
       - claude-code
+      - rancher
 
     personal:
       - discord
